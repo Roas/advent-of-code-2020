@@ -63,7 +63,7 @@ def split(word):
 def read_input():
     with open('input.txt', 'r') as f:
         file_content = f.read()
-    return file_content.split('\n')[:-1]
+    return file_content.split('\n')[:-1] # -1 to kill newline at the end of the file that atom won't let me remove
 
 
 if __name__ == "__main__":
