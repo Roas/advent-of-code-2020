@@ -2,6 +2,7 @@
 
 
 INPUT_FILE = "input.txt"
+already_touched = {}
 
 
 def main():
@@ -15,12 +16,15 @@ def main():
 def process_content(content, counter):
     total_options = 0
     addition = 1
+    if content[counter] in already_touched.keys():
+        return already_touched[content[counter]]
     while content[counter] >= content[counter + addition] - 3:
         if counter + addition >= len(content) - 1:
             return 1
             break
         total_options = total_options + process_content(content, counter + addition)
         addition = addition + 1
+    already_touched[content[counter]] = total_options
     return total_options
 
 def read_content():
